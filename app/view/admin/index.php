@@ -6,15 +6,9 @@
       $data = explode('@',$_SESSION['sess_name']);
       $name = $data[0];
     } else { 
-      header("Location: http://localhost:888/login");
+      header("Location: /login");
     }
 
-//   if( $_SESSION["loggedin"] == false){
-//     var_dump( $_SESSION["loggedin"]);
-//     die();
-//     header("Location: http://localhost:888/login");
-//     exit;
-//  }
  
  ?>
 
