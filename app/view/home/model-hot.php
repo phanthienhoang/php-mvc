@@ -13,7 +13,7 @@
                     </div>
                     <div class="text text-center">
                         <?php $name = explode(" ",$value->name)?>
-                        <h3><a href="/home/modelSingle/<?=$value->id?>"><?= $name[0]?><br><span><?= $name[1]?></span></a></h3>
+                        <h3><a href="/home/modelSingle/<?=$value->id?>"><?php if(isset($name[0])){ echo $name[0];}?><br><span><?php if(isset($name[1])){ echo $name[1];}?></span></a></h3>
                         <div class="d-flex models-info">
                             <div class="box">
                                 <p>Height</p>

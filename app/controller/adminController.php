@@ -52,11 +52,16 @@ class adminController extends Controller
         return $data;
     }
 
-    public function updateModelFashionSingle($id)
+    public function updateSingle($id)
     {   
-
-        $idd=$_POST['id'];
-        $image = $_FILES['image'];
+        
+        if($_FILES['image']){
+            $image = $_FILES['image'];
+            $final_image = $this->uploadFileManager($image);
+        }else{
+            $final_image = "823026image2_1.jpg";
+        }
+        
         $name = $_POST['name'];
         $height = $_POST['height'];
         $bust = $_POST['bust'];
@@ -64,9 +69,8 @@ class adminController extends Controller
         $hips = $_POST['hips'];
         $shoe = $_POST['shoe'];
         $category_id = $_POST['category_id'];
-        $final_image = $this->uploadFileManager($image);
         $arr =[$final_image, $name, $height, $bust, $waist, $hips, $shoe, $category_id];
-        $data = $this->modelFashionModel->updateModel($arr,$idd);
+        $data = $this->modelFashionModel->updateModel($arr, $id);
         return $data;
     }
 
@@ -79,5 +83,11 @@ class adminController extends Controller
 
         move_uploaded_file( $tmp, IMAGES . $final_image );
         return $final_image;
+    }
+
+    public function deleteModel($id)
+    {
+        $data = $this->modelFashionModel->delete($id);
+        return $data;
     }
 }

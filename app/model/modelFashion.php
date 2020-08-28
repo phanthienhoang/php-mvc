@@ -63,7 +63,7 @@ class modelFashion extends DB
 
     public function updateModel($arr, $id)
     {
-        $sql = "UPDATE `model_fashions` SET `image`= ?,`name`= ?,`height`= ?,`bust`= ?,`waist`= ?,`hips`= ?,`shoe`= ?,`category_id`= ?, WHERE ?";
+        $sql = "UPDATE `model_fashions` SET `image`= ?,`name`= ?,`height`= ?,`bust`= ?,`waist`= ?,`hips`= ?,`shoe`= ?,`category_id`= ? WHERE `id` = ?";
         $statement = $this->con->prepare($sql);
         $statement->bindParam(1,$arr[0]);
         $statement->bindParam(2,$arr[1]);
@@ -74,7 +74,15 @@ class modelFashion extends DB
         $statement->bindParam(7,$arr[6]);
         $statement->bindParam(8,$arr[7]);
         $statement->bindParam(9,$id);
-        return ($statement->execute());
+        return $statement->execute();
+    }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM `model_fashions` WHERE `id` = ?";
+        $statement = $this->con->prepare($sql);
+        $statement->bindParam(1,$id);
+        return $statement->execute();
     }
 
 }
