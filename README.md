@@ -1,3 +1,1 @@
 SET UP PROJECT PHP THEO MÔ HÌNH MVC 
-
-mysql : 

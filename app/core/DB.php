@@ -3,10 +3,16 @@
 class DB{
 
     public $con;
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "php-mvc";
+    // private $servername = "localhost";
+    // private $username = "root";
+    // private $password = "";
+    // private $dbname = "test";
+    // private $charset = "utf8";
+
+    private $servername = "ec2-54-160-120-28.compute-1.amazonaws.com";
+    private $username = "d3sqf7vu1hi6m4";
+    private $password = "888a4c12cf1cb020658368757d4ea0475abd9de46776833421e99bd74d54edca";
+    private $dbname = "zhelxwftazmksc";
     private $charset = "utf8";
 
     public function __construct(){
@@ -27,20 +33,4 @@ class DB{
       
     }
 }
-
-// class DB{
-//     public $con;
-//     protected $servername = "localhost";
-//     protected $username = "root";
-//     protected $password = "";
-//     protected $dbname = "php-mvc";
-//     protected $charset = "utf8";
-
-//     function __construct(){
-//         $this->con = mysqli_connect($this->servername, $this->username, $this->password);
-//         mysqli_select_db($this->con, $this->dbname);
-//         mysqli_query($this->con, "SET NAMES 'utf8'");
-//     }
-
-// }
 

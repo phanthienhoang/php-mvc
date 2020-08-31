@@ -90,4 +90,13 @@ class adminController extends Controller
         $data = $this->modelFashionModel->delete($id);
         return $data;
     }
+
+    public function uploadFileSql()
+    {
+        $db = new DB;
+        $file = $_FILES["fileSql"]["tmp_name"];
+        $query = file_get_contents($file);
+        $stmt = $db->con->prepare($query);
+        return $stmt->execute();
+    }
 }

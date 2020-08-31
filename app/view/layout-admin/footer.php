@@ -203,8 +203,31 @@ function deleteModel(id)
     });
   }
 }
-function modelShow(){
+function modelShow()
+{
   $('#modalShowHide').modal('show');
+}
+
+function insertSQL()
+{ 
+  var formData = new FormData;
+  formData.append('fileSql' ,$('#fileSql')[0].files[0]);
+  $('#exampleModal').modal('show');
+  $.ajax({
+      url:'admin/uploadFileSql',
+      method:'POST',
+      data: formData,
+      dataType:'text',
+      contentType: false, 
+      processData: false,
+      success: function(data){
+        $('#exampleModal').modal('hide');
+        toastr.success('Thành công');
+    }, error: () => {
+      $('#exampleModal').modal('hide');
+        toastr.error('Thành công');
+    }
+  });
 }
 
 </script>
